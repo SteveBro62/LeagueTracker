@@ -1,4 +1,4 @@
-LeagueTracker
+# LeagueTracker
 
 A tracker for your league games, added manually.
 
