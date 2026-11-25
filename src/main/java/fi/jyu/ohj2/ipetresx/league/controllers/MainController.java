@@ -1,6 +1,5 @@
-package fi.jyu.ohj2.ipetresx.league;
+package fi.jyu.ohj2.ipetresx.league.controllers;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
