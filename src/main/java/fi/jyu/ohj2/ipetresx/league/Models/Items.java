@@ -1,4 +1,6 @@
-package Models;
+package fi.jyu.ohj2.ipetresx.league.Models;
+
+import java.util.*;
 
 public class Items {
     private String name;
