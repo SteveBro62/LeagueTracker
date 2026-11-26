@@ -4,23 +4,22 @@ import java.util.*;
 
 import java.util.List;
 
-public class Games {
-    private Champions champion;
-    private Champions matchup;
+public class Game {
+    private Champion champion;
+    private Champion matchup;
 
     private int kills;
     private int deaths;
     private int assists;
 
-    private String role;
-    private List<Items> items;
+    private Role role;
+    private final ItemCollection items = new ItemCollection();
 
     private boolean won;
-    private int gameDuration;
     private double score;
 
     // Constructor
-    public Games(Champions champion, Champions matchup, int kills, int deaths, int assists, String role, List<Items> items, boolean won, int gameDuration) {
+    public Game(Champion champion, Champion matchup, int kills, int deaths, int assists, Role role, List<Item> items, boolean won) {
 
         this.champion = champion;
         this.matchup = matchup;
@@ -28,18 +27,19 @@ public class Games {
         this.deaths = deaths;
         this.assists = assists;
         this.role = role;
-        this.items = items;
+        this.items.setItems(items);
         this.won = won;
-        this.gameDuration = gameDuration;
         this.score = 0.0;
     }
 
+    public Game(){};
+
     // Getters
-    public Champions getChampion() {
+    public Champion getChampion() {
         return champion;
     }
 
-    public Champions getMatchup() {
+    public Champion getMatchup() {
         return matchup;
     }
 
@@ -55,11 +55,11 @@ public class Games {
         return assists;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public List<Items> getItems() {
+    public ItemCollection getItems() {
         return items;
     }
 
@@ -67,20 +67,16 @@ public class Games {
         return won;
     }
 
-    public int getGameDuration() {
-        return gameDuration;
-    }
-
     public double getScore() {
         return score;
     }
 
     // Setters
-    public void setChampion(Champions champion) {
+    public void setChampion(Champion champion) {
         this.champion = champion;
     }
 
-    public void setMatchup(Champions matchup) {
+    public void setMatchup(Champion matchup) {
         this.matchup = matchup;
     }
 
@@ -96,20 +92,16 @@ public class Games {
         this.assists = assists;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
-    public void setItems(List<Items> items) {
-        this.items = items;
+    public void setItems(List<Item> items) {
+        this.items.setItems(items);
     }
 
     public void setWon(boolean won) {
         this.won = won;
-    }
-
-    public void setGameDuration(int gameDuration) {
-        this.gameDuration = gameDuration;
     }
 
     public void setScore(double score) {

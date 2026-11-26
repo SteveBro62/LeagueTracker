@@ -1,0 +1,12 @@
+[
+  {
+    "name" : "Aatrox",
+    "difficulty" : "HARD",
+    "classes" : ["Fighter"]
+  },
+  {
+    "name" : "Yuumi",
+    "difficulty" : "EASY",
+    "classes" : ["Support", "Mage"]
+  }
+]
