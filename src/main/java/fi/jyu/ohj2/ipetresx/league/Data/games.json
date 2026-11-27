@@ -1,12 +1,12 @@
 [
   {
     "name" : "Aatrox",
-    "difficulty" : "HARD",
+    "difficulty" : "Hard",
     "classes" : ["Fighter"]
   },
   {
     "name" : "Yuumi",
-    "difficulty" : "EASY",
+    "difficulty" : "Easy",
     "classes" : ["Support", "Mage"]
   }
 ]

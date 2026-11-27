@@ -29,4 +29,8 @@ public class Champion {
     public Difficulty getDifficulty() {
         return difficulty;
     }
+
+    public int getDifficultyCoefficient(){
+        return difficulty.getValue();
+    }
 }

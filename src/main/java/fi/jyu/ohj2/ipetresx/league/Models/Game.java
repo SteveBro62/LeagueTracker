@@ -16,7 +16,7 @@ public class Game {
     private final ObjectProperty<ItemCollection> items = new SimpleObjectProperty<>();
 
     private final BooleanProperty won = new SimpleBooleanProperty();
-    private final DoubleProperty score = new SimpleDoubleProperty();
+    private DoubleProperty score = new SimpleDoubleProperty();
 
     // Constructor
     public Game(Champion champion, Champion matchup, int kills, int deaths, int assists, Role role, List<Item> items, boolean won) {
@@ -144,6 +144,6 @@ public class Game {
     }
 
     public void calculateScore(){
-
+        score.setValue(champion.getValue().getDifficultyCoefficient() * (1 + (won.get() ? 1 : 0)));
     }
 }
