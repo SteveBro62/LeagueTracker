@@ -2,13 +2,23 @@ package fi.jyu.ohj2.ipetresx.league.Models;
 
 import fi.jyu.ohj2.ipetresx.league.persistance.GameRepository;
 import fi.jyu.ohj2.ipetresx.league.persistance.RepositoryException;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
 public class GameCollection {
     // add extractor to Game List !!!
-    private final ObservableList<Game> games = FXCollections.observableArrayList();
+    private final ObservableList<Game> games = FXCollections.observableArrayList(game -> new Observable[]{
+            game.getItemsProperty(),
+            game.getRoleProperty(),
+            game.getAssistsProperty(),
+            game.getChampionProperty(),
+            game.getDeathsProperty(),
+            game.getKillsProperty(),
+            game.getWonProperty(),
+            game.getMatchupProperty()
+    });
     private final GameRepository repo;
 
     // Constructor
@@ -20,7 +30,12 @@ public class GameCollection {
         catch (RepositoryException e){
             IO.println(e.getMessage());
         }
-        games.addListener((ListChangeListener<? super Game>)  change -> {
+        games.addListener( (ListChangeListener<? super Game>) change -> {
+                    while (change.next()){
+                        if (change.wasUpdated()) {
+                            change.getList().subList(change.getFrom(), change.getTo()).forEach(Game::calculateScore);
+                        }
+                }
             save();
         });
     }
